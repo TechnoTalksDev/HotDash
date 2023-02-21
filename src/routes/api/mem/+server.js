@@ -7,7 +7,11 @@ function convert(bytes) {
 export const GET = async (event) => {
   return new Response(await mem()
   .then(data => {
-    return JSON.stringify({"percent":convert(data.used), "used":(convert(data.used)/convert(data.total)*100).toFixed(0)})
+    return JSON.stringify([
+      {"id": "used", "data": convert(data.used)+"G"},
+      {"id": "percent", "data": (convert(data.used)/convert(data.total)*100).toFixed(0)+"%"},
+      {"id": "total", "data": convert(data.total)+"G"}
+    ])
     //{["percent": convert(data.used)], ["used": (convert(data.used)/convert(data.total)*100).toFixed(0)]}
   }))
 }

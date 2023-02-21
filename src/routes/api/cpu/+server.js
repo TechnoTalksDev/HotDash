@@ -1,6 +1,4 @@
-import { cpu, currentLoad, mem } from 'systeminformation';
-
-let cpu_percent
+import { cpuTemperature, currentLoad, mem } from 'systeminformation';
 
 function convert(bytes) {
   return (bytes/Math.pow(10,9)).toFixed(2)
@@ -8,14 +6,28 @@ function convert(bytes) {
 
 
 export const GET = async (event) => {
-  return new Response(await currentLoad()
-  .then(data => {
-    return Math.round(data.currentLoad)
-  })
-  .catch(error => {
-    return error
-  }))
-  
+
+  const cpu_temp =  await cpuTemperature()
+    .then(data => {
+      return data.main
+    })
+    .catch(error => {
+      return error
+    })
+
+   const cpu_percent = await currentLoad()
+    .then(data => {
+      return Math.round(data.currentLoad)
+    })
+    .catch(error => {
+      return error
+    })
+
+    return new Response(JSON.stringify([
+      {"id": "percent", "data": cpu_percent+"%"},
+      {"id": "temp", "data": cpu_temp+"C"}
+    ]))
+    
 }
 
 
