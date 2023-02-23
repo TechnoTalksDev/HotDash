@@ -24,8 +24,8 @@ export const GET = async (event) => {
     })
 
     return new Response(JSON.stringify([
-      {"id": "percent", "data": cpu_percent+"%"},
-      {"id": "temp", "data": cpu_temp+"C"}
+      {"id": "CPU usage", "data": cpu_percent+"%"},
+      {"id": "CPU temp", "data": cpu_temp+"C"}
     ]))
     
 }

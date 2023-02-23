@@ -8,9 +8,9 @@ export const GET = async (event) => {
   return new Response(await mem()
   .then(data => {
     return JSON.stringify([
-      {"id": "used", "data": convert(data.used)+"G"},
-      {"id": "percent", "data": (convert(data.used)/convert(data.total)*100).toFixed(0)+"%"},
-      {"id": "total", "data": convert(data.total)+"G"}
+      {"id": "RAM used", "data": convert(data.used)+"G"},
+      {"id": "RAM usage", "data": (convert(data.used)/convert(data.total)*100).toFixed(0)+"%"},
+      {"id": "RAM total", "data": convert(data.total)+"G"}
     ])
     //{["percent": convert(data.used)], ["used": (convert(data.used)/convert(data.total)*100).toFixed(0)]}
   }))

@@ -23,24 +23,31 @@ onMount(async () => {
     </div>
     <h1>HotDash</h1>
   
-
-    {#if cpu === undefined}
-        <h2>Loading cpu...</h2>
-    {:else}
-        {#each cpu as c (c.id)}
-            <h2>{c.id}: {c.data}</h2>
-        {/each}
-    {/if}
-    {#if mem === undefined}
-        <h2>Loading mem...</h2>
-    {:else}
-        {#each mem as m (m.id)}
-            <h2>{m.id}: {m.data}</h2>
-        {/each}
-    {/if}
+    <div class="container">
+      {#if cpu === undefined}
+          <h2>Loading cpu...</h2>
+      {:else}
+          {#each cpu as c (c.id)}
+            <div class="card">
+              <h2>{c.data}</h2>
+              <h3>{c.id}</h3>
+            </div>
+          {/each}
+      {/if}
+      {#if mem === undefined}
+          <h2>Loading mem...</h2>
+      {:else}
+          {#each mem as m (m.id)}
+            <div class="card">
+              <h2>{m.data}</h2>
+              <h3>{m.id}</h3>
+            </div>       
+          {/each}
+      {/if}
+    </div>
   
     <p>
-      Check out the <a href="https://github.com/sveltejs/kit#readme" target="_blank" rel="noreferrer">github</a>
+      Check out the <a href="https://github.com/TechnoTalksDev/HotDash" target="_blank" rel="noreferrer">github</a>
     </p>
   </main>
   
