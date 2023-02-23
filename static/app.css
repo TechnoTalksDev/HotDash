@@ -47,15 +47,11 @@
     font-size: 2em;
   }
 
-
-  
-  .main{
-    width: fit-content;
-  }
-
   .container {
     display: flex;
-    justify-content: space-between;
+    width: 100vw;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
   }
 
   .card {
@@ -63,13 +59,16 @@
     width: 2in;
     height: 2in;
     margin: 30px;
+    border-radius: 5px;
     /*background-color: var(--offbackground-color);*/
-    /*Card Shawdow*/
+    /*Card Shawdow and color*/
+    background: linear-gradient(var(--secondary-color), var(--main-color));
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     /*Card layout*/
     display: grid;
     align-items: center;
+
   }
   
   #app {

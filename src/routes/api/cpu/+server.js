@@ -7,7 +7,7 @@ function convert(bytes) {
 
 export const GET = async (event) => {
 
-  const cpu_temp =  await cpuTemperature()
+  const cpu_temp = await cpuTemperature()
     .then(data => {
       return data.main
     })
