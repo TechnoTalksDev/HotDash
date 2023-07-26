@@ -9,7 +9,7 @@ export const GET = async (event) => {
 
   const cpu_temp = await cpuTemperature()
     .then(data => {
-      return data.main
+      return Math.round(data.main)
     })
     .catch(error => {
       return error
